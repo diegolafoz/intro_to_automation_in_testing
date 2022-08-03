@@ -78,6 +78,13 @@
             <version>3.23.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-gherkin-messages</artifactId>
+            <version>7.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
