@@ -2,11 +2,9 @@ package backend.steps;
 
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import io.restassured.http.ContentType;
-import static backend.steps.AddPetSteps.categoryId;
+
 import static backend.steps.AddPetSteps.petId;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
 public class DeletePetSteps {
 
