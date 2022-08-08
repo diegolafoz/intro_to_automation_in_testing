@@ -47,7 +47,6 @@ public class AddPetSteps {
         );
     }
 
-
     @Then("the pet name is {string}")
     public void thePetNameIs(String petName) {
         assertThat(petName).isEqualTo(this.petName);

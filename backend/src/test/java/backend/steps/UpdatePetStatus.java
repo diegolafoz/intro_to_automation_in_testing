@@ -35,7 +35,6 @@ public class UpdatePetStatus {
                 .then()
                 .assertThat()
                 .statusCode(200);
-
     }
 
     @Then("Ralf status is {string}")

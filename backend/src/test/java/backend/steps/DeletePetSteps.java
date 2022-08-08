@@ -35,5 +35,4 @@ public class DeletePetSteps {
                 .assertThat()
                 .statusCode(404);
     }
-
 }
