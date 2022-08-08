@@ -11,11 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
-
 import static frontend.Utils.waitSeconds;
 
 public class Ordering {
@@ -25,11 +23,9 @@ public class Ordering {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Ordering.class);
 
-
     @Given("I visit Demoblaze")
     public void i_visit_demoblaze() {
         driver.get("https://www.demoblaze.com");
-
     }
 
     @When("I click on computers section")
@@ -39,55 +35,47 @@ public class Ordering {
             if (categorie.getAttribute("onclick").contains("byCat('notebook')")) {
                 categorie.click();
             }
-
     }
 
     @And("I click on {} laptop")
-    public void select_Sony_vaio_i5(String laptopName) {
+    public void select_laptop(String laptopName) {
         WebElement laptopBtn = wait.until(ExpectedConditions.elementToBeClickable(By.linkText(laptopName)));
         laptopBtn.click();
-
     }
 
     @And("I click on Add to cart button")
     public void add_laptop_to_cart() {
         WebElement addToCartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.btn.btn-success.btn-lg")));
         addToCartBtn.click();
-
     }
 
     @And("I accept pop up confirmation")
     public void accept_popup_confirmation() {
         wait.until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().accept();
-
     }
 
     @And("I navigate to laptops section")
     public void navigate_laptops_section() {
         i_visit_demoblaze();
         i_visit_laptops();
-
     }
 
     @And("Now I click on {} laptop")
     public void select_Dell_i7_laptop(String laptop) {
-        select_Sony_vaio_i5("Dell i7 8gb");
-
+        select_laptop("Dell i7 8gb");
     }
 
     @And("I click on Add to cart")
     public void add_Dell_to_cart() {
         add_laptop_to_cart();
         accept_popup_confirmation();
-
     }
 
     @And("I navigate to cart")
     public void go_to_cart() {
         WebElement cartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("cartur")));
         cartBtn.click();
-
     }
 
     @And("I delete Dell i7 8gb laptop from cart")
@@ -102,7 +90,6 @@ public class Ordering {
                     deleteBtn.click();
                     waitSeconds(2);
                     break table;
-
                 }
             }
         }
@@ -112,7 +99,6 @@ public class Ordering {
     public void place_order() {
         WebElement placeOrderBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.btn.btn-success")));
         placeOrderBtn.click();
-
     }
 
     @And("I fill in all web form fields")
@@ -129,7 +115,6 @@ public class Ordering {
         month.sendKeys("January");
         WebElement year = driver.findElement(By.id("year"));
         year.sendKeys("1989");
-
     }
 
     @And("I click on Purchase")
@@ -138,7 +123,6 @@ public class Ordering {
         for (WebElement p : purchaseBtn) {
             if (p.getAttribute("onclick").contains("purchaseOrder()")) {
                 p.click();
-
             }
         }
     }
@@ -166,8 +150,8 @@ public class Ordering {
     }
 
     @Then("I have ordered the product correctly")
-    public void iHaveOrderedTheProductCorrectly() {
-        WebElement okBtn = driver.findElement(By.cssSelector("button.confirm.btn.btn-lg.btn-primary"));
+    public void i_have_ordered_the_product_correctly() {
+        WebElement okBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.confirm.btn.btn-lg.btn-primary")));
         okBtn.click();
     }
 }
