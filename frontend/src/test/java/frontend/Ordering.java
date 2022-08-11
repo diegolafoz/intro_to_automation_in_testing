@@ -30,11 +30,8 @@ public class Ordering {
 
     @When("I click on computers section")
     public void i_visit_laptops() {
-        List<WebElement> categories = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("div.list-group a#itemc")));
-        for (WebElement categorie : categories)
-            if (categorie.getAttribute("onclick").contains("byCat('notebook')")) {
-                categorie.click();
-            }
+        WebElement laptops = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@onclick,'notebook')]")));
+        laptops.click();
     }
 
     @And("I click on {} laptop")
