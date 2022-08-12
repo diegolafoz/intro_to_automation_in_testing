@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.util.List;
 import static frontend.Utils.waitSeconds;
 
-public class cartPage {
+public class CartPage {
 
     WebDriver driver;
     Utils utils;
@@ -41,7 +41,7 @@ public class cartPage {
         }
     }
 
-    public cartPage (WebDriver driver) {
+    public CartPage(WebDriver driver) {
         this.driver = driver;
         utils = new Utils(this.driver);
     }

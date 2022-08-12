@@ -4,14 +4,14 @@ import frontend.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class specificLaptopPage {
+public class SpecificLaptopPage {
 
     WebDriver driver;
     Utils utils;
     By addToCartBtn = By.cssSelector("a.btn.btn-success.btn-lg");
     By cartBtn = By.id("cartur");
 
-    public specificLaptopPage (WebDriver driver) {
+    public SpecificLaptopPage(WebDriver driver) {
         this.driver = driver;
         utils = new Utils(this.driver);
     }

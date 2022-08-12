@@ -4,13 +4,13 @@ import frontend.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class homePage {
+public class HomePage {
 
     WebDriver driver;
     Utils utils;
     By laptops = By.xpath("//a[contains(@onclick,'notebook')]");
 
-    public homePage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         utils = new Utils(this.driver);
     }
